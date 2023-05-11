@@ -2,6 +2,7 @@
   <div class="container">
     <div class="container-left">
       <h2>Thông tin giao hàng</h2>
+<<<<<<< HEAD
       <input placeholder="Họ tên" type="text" formControlName="fullName" />
 
       <div *ngIf="
@@ -57,6 +58,75 @@
         </option>
       </select>
 
+=======
+        <input placeholder="Họ tên" type="text" formControlName="fullName" />
+
+        <div
+            *ngIf="
+            shipInformation.controls['fullName'].invalid &&
+              (shipInformation.controls['fullName'].dirty ||
+              shipInformation.controls['fullName'].touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="shipInformation.controls['fullName'].hasError('required')"
+              >Vui lòng nhập họ tên</small>
+          </div>
+
+
+        <input placeholder="Số điện thoại" type="text" formControlName="sodt" />
+
+        <div
+        *ngIf="
+        shipInformation.controls['sodt'].invalid &&
+          (shipInformation.controls['sodt'].dirty ||
+          shipInformation.controls['sodt'].touched)
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="shipInformation.controls['sodt'].hasError('required')"
+          >Vui lòng nhập số điện thoại</small>
+      </div>
+
+        <input type="text" placeholder="Địa chỉ cụ thể" formControlName="address" />
+
+        <div
+        *ngIf="
+        shipInformation.controls['address'].invalid &&
+          (shipInformation.controls['address'].dirty ||
+          shipInformation.controls['address'].touched)
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="shipInformation.controls['address'].hasError('required')"
+          >Vui lòng nhập địa chỉ cụ thể</small>
+      </div>
+
+        <select name="" id="" (change)="handleChooseCity($event)" formControlName="city" required>
+          <option value="">Tỉnh/Thành phố</option>
+          <option *ngFor="let city of citys" [value]="city.idProvince">
+            {{ city.name }}
+          </option>
+        </select>
+
+        <select name="" id="" (change)="handleChooseDistric($event)" formControlName="distric" required>
+          <option value="">Quận/Huyện</option>
+          <option *ngFor="let distric of districs" [value]="distric.idDistrict">
+            {{ distric.name }}
+          </option>
+        </select>
+
+        <select name="" id="" formControlName="village" required>
+          <option value="">Phường/Xã</option>
+          <option value="" *ngFor="let village of villages" [value]="village.name">
+            {{ village.name }}
+          </option>
+        </select>
+
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289
 
       <!-- <h2 class="mg-t">Phương Thức Thanh Toán</h2>
       <div class="checkbox-item">

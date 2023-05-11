@@ -25,10 +25,18 @@ import { AllProductOrderComponent } from './purchase-order/all-product-order/all
 import { HistoryOrderComponent } from './purchase-order/history-order/history-order.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LimitToPipePipe } from './limit-to.pipe.pipe';
+<<<<<<< HEAD
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { PurchaseStatusComponent } from './purchase-order/purchase-status/purchase-status.component';
+=======
 import { SellerHomeComponent } from './admin/seller-home/seller-home.component';
 import { SellerUpdateProductComponent } from './admin/seller-update-product/seller-update-product.component';
 import { SellerAddProductComponent } from './admin/seller-add-product/seller-add-product.component';
+<<<<<<< HEAD
 import { PurchaseStatusComponent } from './purchase-order/purchase-status/purchase-status.component';
+=======
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289
 
 
 @NgModule({
@@ -52,10 +60,19 @@ import { PurchaseStatusComponent } from './purchase-order/purchase-status/purcha
     AllProductOrderComponent,
     HistoryOrderComponent,
     LimitToPipePipe,
+<<<<<<< HEAD
+    PurchaseStatusComponent,
+
+=======
     SellerHomeComponent,
     SellerUpdateProductComponent,
+<<<<<<< HEAD
     SellerAddProductComponent,
     PurchaseStatusComponent
+=======
+    SellerAddProductComponent
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289
   ],
   imports: [
     BrowserModule,
@@ -65,7 +82,11 @@ import { PurchaseStatusComponent } from './purchase-order/purchase-status/purcha
     Ng2SearchPipeModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

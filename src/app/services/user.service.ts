@@ -21,6 +21,20 @@ export class UserService {
   }
   login(username: string, password: string): Observable<any> {
     return this.http.get<any>(`https://644732497bb84f5a3e39d8b7.mockapi.io/users?username=${username}&password=${password}`)
+<<<<<<< HEAD
+}
+
+setNameLogin(name: string){
+  this.NameLogin.next(name)
+}
+getNameLogin(){
+  return this.NameLogin.asObservable()
+}
+// update(id:any,data: any):Observable<any>{
+//   return this.http.patch<any>(`${this.url}/${id}`,data)
+// }
+}
+=======
   }
   setNameLogin(name: string) {
     this.NameLogin.next(name)
@@ -33,3 +47,4 @@ export class UserService {
   //   return this.http.patch<any>(`${this.url}/${id}`,data)
   // }
 }
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1

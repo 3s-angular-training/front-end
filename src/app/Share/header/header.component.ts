@@ -1,23 +1,28 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
-import { ColorService } from 'src/app/services/color.service';
-import { UserService } from 'src/app/services/user.service';
-import { HomeComponent } from 'src/app/home/home.component';
-import { LoginComponent } from 'src/app/login/login.component';
-import { Product } from 'src/app/product';
+import { Component, EventEmitter, OnInit } from "@angular/core";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { Router } from "@angular/router";
+import { CookieService } from "ngx-cookie-service";
+import { ColorService } from "src/app/services/color.service";
+import { UserService } from "src/app/services/user.service";
+import { HomeComponent } from "src/app/home/home.component";
+import { LoginComponent } from "src/app/login/login.component";
+import { Product } from "src/app/product";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
   cartItems = 0;
+<<<<<<< HEAD
+  name: string = "";
+  nameLogin: string = "";
+=======
   name: string = '';
   nameLogin: string = '';
   nameLoginAdmin: string = '';
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1
 
   constructor(
     private product: ColorService,
@@ -25,6 +30,37 @@ export class HeaderComponent implements OnInit {
     private user: UserService,
     private dialog: MatDialog,
     private router: Router
+<<<<<<< HEAD
+  ) {}
+
+  ngOnInit() :void{
+    this.user.getNameLogin().subscribe((name) => {
+      this.nameLogin = name;
+    });
+    const namecookieUser = this.cookieService.get('user');
+    this.product
+    .getCartItems(JSON.parse(namecookieUser).id)
+    .subscribe((cartItems: Product[] | []) => {
+      this.cartItems = cartItems.length;
+    });
+    this.getName()
+  }
+getName(){
+  const namecookieUser = this.cookieService.get("user");
+  this.user.setNameLogin(JSON.parse(namecookieUser).username)
+}
+  login() {
+    const dialogRef = this.dialog.open(LoginComponent);
+  }
+  logout() {
+    this.cookieService.delete("admin")
+    this.cookieService.delete("user");
+    this.user.setNameLogin(this.name);
+    this.router.navigate(["/home"]);
+    this.cartItems = 0;
+  }
+}
+=======
   ) { }
 
   ngOnInit() {
@@ -66,4 +102,16 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/home']);
     this.cartItems = 0;
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+
+
+
+
+
+
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289

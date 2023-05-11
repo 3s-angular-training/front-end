@@ -19,5 +19,9 @@ export class HistoryOrderComponent implements OnInit{
         return (order.status == 2 || order.status == -1);
       });
   })
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289
 }
 }

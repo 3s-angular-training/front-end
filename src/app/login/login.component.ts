@@ -31,6 +31,7 @@ export class LoginComponent {
     private matdialog: MatDialog
   ) {}
   onSubmit(): void {
+<<<<<<< HEAD
     if(this.loginForm.valid){
     // kiểm tra tài khoản user
     this.userd.getList().subscribe((res) => {
@@ -69,6 +70,69 @@ export class LoginComponent {
    else{
     ValidatorForm.validateAllFormFileds(this.loginForm)
    }
+=======
+    if (this.loginForm.valid) {
+      // kiểm tra tài khoản user
+      this.userd.getList().subscribe((res) => {
+        const user = res.find((us: User) => {
+          return (us.username ===
+            this.loginForm.value.username &&
+            bcrypt.compareSync(this.loginForm.value.password ?? "", us.password)) && us.jurisdiction === 0;
+        });
+        // kiểm tra tài khoản admin
+        const admin = res.find((us: User) => {
+          return (us.username ===
+            this.loginForm.value.username &&
+            bcrypt.compareSync(this.loginForm.value.password ?? "", us.password))
+            && us.jurisdiction === 1;
+        })
+
+<<<<<<< HEAD
+      if (user) {
+        this.cookieService.set(
+          "user",
+          JSON.stringify({ id: user.id, username: user.username })
+        );
+        this.userd.setNameLogin(user.username);
+        this.route.navigate(['/home'])
+        this.matdialog.closeAll();
+      }
+      else if (admin) {
+        this.cookieService.set("admin",JSON.stringify({ id: admin.id, username: admin.username }))
+        this.route.navigate(['/homeadmin'])
+        this.matdialog.closeAll();
+      }
+      else {
+        this.err = true;
+      }
+    });
+  }
+   else{
+    ValidatorForm.validateAllFormFileds(this.loginForm)
+   }
+=======
+        if (user) {
+          this.cookieService.set(
+            "user",
+            JSON.stringify({ id: user.id, username: user.username })
+          );
+          this.userd.setNameLogin(user.username);
+          this.matdialog.closeAll();
+        }
+        else if (admin) {
+          this.cookieService.set('admin', "admin")
+          this.route.navigate(['/seller-home'])
+        }
+        else {
+          this.err = true;
+        }
+      });
+    }
+    else {
+      ValidatorForm.validateAllFormFileds(this.loginForm)
+    }
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289
   }
   register() {
     this.matdialog.closeAll();

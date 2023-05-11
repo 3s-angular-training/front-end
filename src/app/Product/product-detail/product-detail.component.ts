@@ -79,6 +79,15 @@ export class ProductDetailComponent implements OnInit {
         return;
       }
       this.product.quantity = this.number;
+<<<<<<< HEAD
+      this.detail.postToPay({ ...this.product, size: this.selectedOption })
+        .subscribe(response => {
+          console.log(response);
+          this.routerProdcut.navigate(['/cart']);
+        }, error => {
+          console.log(error);
+        });
+=======
       this.detail
         .postToPay({ ...this.product, size: this.selectedOption, idUser: this.idUser.id })
         .subscribe(
@@ -90,6 +99,7 @@ export class ProductDetailComponent implements OnInit {
           }
         );
       console.log(this.product);
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1
     }
   }
 }

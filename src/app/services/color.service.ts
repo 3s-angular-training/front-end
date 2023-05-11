@@ -70,5 +70,8 @@ export class ColorService {
       })
     );
   }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1
 }

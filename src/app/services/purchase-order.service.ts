@@ -39,6 +39,14 @@ export class PurchaseOrderService {
     return this.http.get<ShipInformation[]>(
       `https://6448cb05e7eb3378ca35ea13.mockapi.io/shipInformations?idUser=${idUser}&status=${status}`
     );
+<<<<<<< HEAD
+=======
+  }
+  getIdOrder(id: number): Observable<ShipInformation> {
+    return this.http.get<ShipInformation>(
+      `https://6448cb05e7eb3378ca35ea13.mockapi.io/shipInformations/${id}`
+    );
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289
   }
   getIdOrder(id: number): Observable<ShipInformation> {
     return this.http.get<ShipInformation>(

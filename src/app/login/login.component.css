@@ -64,6 +64,7 @@
   }
   .btn:hover{
 	background-color: #08609a;
+<<<<<<< HEAD
   }
   .mg-t{
 	 margin-top: 20px;
@@ -75,3 +76,20 @@
   .input{
 	padding-left: 5px;
   }
+=======
+}
+<<<<<<< HEAD
+.input{
+  padding-left: 5px;
+}
+=======
+
+.mg-t {
+	margin-top: 20px;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	cursor: pointer;
+}
+>>>>>>> 2b24f6c9935e5e59160e0fa864d66aea6d3729b1
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289

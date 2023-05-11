@@ -11,9 +11,15 @@
 }
 
 .container-left input {
+<<<<<<< HEAD
     margin-bottom: 14px;
     height: 30px;
     width: 64%;
+=======
+margin-bottom: 14px;
+height: 30px;
+width: 64%;
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289
 }
 
 .container-left select {
@@ -110,8 +116,15 @@
 .mg-t {
     margin-top: -14px;
 }
+<<<<<<< HEAD
 
 .text-danger {
     color: red;
     font-size: 14px;
 }
+=======
+.text-danger{
+  color: red;
+  font-size: 14px;
+}
+>>>>>>> 1ad518be6dfc997bb991729e93ada8181f034289
