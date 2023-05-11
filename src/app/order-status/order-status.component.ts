@@ -63,8 +63,9 @@ export class OrderStatusComponent implements OnInit {
     private routered: ActivatedRoute,
     private used: UserService,
     private cookieService: CookieService,
-    private productOrder: ColorService
-  ) {}
+    private productOrder: ColorService,
+
+  ) { }
   ngOnInit() {
     this.getProductCart();
     // lấy danh sách tỉnh thành phố
@@ -89,19 +90,19 @@ export class OrderStatusComponent implements OnInit {
   submitOrder() {
     // lấy name thành phố , huyện
     const nameCity = this.citys.find(
-(city) => city.idProvince === this.shipInformation.value.city
+      (city) => city.idProvince === this.shipInformation.value.city
     );
     const idUser = JSON.parse(this.cookieService.get("user") || "");
     this.districCity = this.districs.find(
       (distric) => distric.idDistrict === this.shipInformation.value.distric
     );
-   // lay san pham trong cart
+    // lay san pham trong cart
     this.productOrder.getCartItems(idUser.id).subscribe((res) => {
-    this.itemCart = res;
+      this.itemCart = res;
 
       const shipInf = {
         idUser: idUser.id,
-        fullname: this.shipInformation.value.fullName,
+        fullName: this.shipInformation.value.fullName,
         sodt: this.shipInformation.value.sodt,
         address: this.shipInformation.value.address,
         city: nameCity?.name,
@@ -114,11 +115,9 @@ export class OrderStatusComponent implements OnInit {
       // add
       if (this.shipInformation.valid) {
         this.order.add(shipInf).subscribe((res) => {
-         this.router.navigate(["/all-product-order"]);
+          this.router.navigate(["/all-product-order"]);
         });
-        this.order.delete(idUser.id).subscribe((res) => {
-          console.log("delete success");
-       })
+        this.removeall()
       }
       else {
         ValidatorForm.validateAllFormFileds(this.shipInformation);
@@ -143,7 +142,16 @@ export class OrderStatusComponent implements OnInit {
       // console.log("total:",this.total);
     });
   }
-  deleteProductOrder(id: number) {
-    this.order.delete(id).subscribe((res) => {});
+
+  // xóa sản phẩm trong cart
+  removeall() {
+    const idUser = JSON.parse(this.cookieService.get("user"));
+    if (idUser) {
+      this.productOrder.getCartItems(+idUser.id).subscribe(res => {
+        res.forEach((item: { id: number }) => {
+          this.productOrder.deleteCartItem(item.id).subscribe();
+        });
+      });
+    }
   }
 }

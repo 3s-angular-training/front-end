@@ -22,15 +22,13 @@ import { ErrorComponent } from './error/error.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
 import { AllProductOrderComponent } from './purchase-order/all-product-order/all-product-order.component';
-import { PendingApprovalComponent } from './purchase-order/pending-approval/pending-approval.component';
-import { CompleteComponent } from './purchase-order/complete/complete.component';
-import { RejectComponent } from './purchase-order/reject/reject.component';
 import { HistoryOrderComponent } from './purchase-order/history-order/history-order.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LimitToPipePipe } from './limit-to.pipe.pipe';
 import { SellerHomeComponent } from './admin/seller-home/seller-home.component';
 import { SellerUpdateProductComponent } from './admin/seller-update-product/seller-update-product.component';
 import { SellerAddProductComponent } from './admin/seller-add-product/seller-add-product.component';
+import { PurchaseStatusComponent } from './purchase-order/purchase-status/purchase-status.component';
 
 
 @NgModule({
@@ -52,14 +50,12 @@ import { SellerAddProductComponent } from './admin/seller-add-product/seller-add
     AdminHomeComponent,
     PurchaseOrderComponent,
     AllProductOrderComponent,
-    PendingApprovalComponent,
-    CompleteComponent,
-    RejectComponent,
     HistoryOrderComponent,
     LimitToPipePipe,
     SellerHomeComponent,
     SellerUpdateProductComponent,
-    SellerAddProductComponent
+    SellerAddProductComponent,
+    PurchaseStatusComponent
   ],
   imports: [
     BrowserModule,
